@@ -1,5 +1,5 @@
-# Wallet Connect Expo
-wallet connect integration with expo dApp.
+# WalletConnect Expo dApp
+Wallet connect integration with expo dApp.
 
 ## Steps to run App with ejecting a project
 
