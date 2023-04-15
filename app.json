@@ -11,7 +11,7 @@
       "./app.plugin"
     ],
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/carboex.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import { useWalletConnect } from "@walletconnect/react-native-dapp";
 
 const shortenAddress = (address) => {
@@ -20,22 +20,24 @@ function Button({ onPress, label }) {
 export default function WalletConnectExperience() {
   const connector = useWalletConnect();
 
-  const connectWallet = React.useCallback(() => {
-    return connector.connect();
-  }, [connector]);
+  const connectWallet = async () => {
+    console.log(connector);
+    return await connector.connect();
+  };
 
-  const killSession = React.useCallback(() => {
-    return connector.killSession();
-  }, [connector]);
+  const killSession = async () => {
+    console.log(connector);
+    return await connector.killSession();
+  };
 
   return (
     <>
       {!connector.connected ? (
-        <Button onPress={connectWallet} label="Connect a wallet" />
+        <Button onPress={() => connectWallet()} label="Connect a wallet" />
       ) : (
         <>
           <Text>{shortenAddress(connector.accounts[0])}</Text>
-          <Button onPress={killSession} label="Log out" />
+          <Button onPress={() => killSession()} label="Log out" />
         </>
       )}
     </>
